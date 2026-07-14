@@ -146,21 +146,24 @@ div[data-baseweb="select"] input {{
     border-color: {C['border']} !important;
 }}
 div[data-baseweb="select"] svg {{ fill: {C['ink']} !important; }}
-/* กล่อง dropdown (popover) — ทาสีเหมาทุก element ข้างใน กัน dark theme เห็นพื้นขาว */
+/* รายการ dropdown ใช้โทน light เสมอ (พื้นขาว ตัวหนังสือเข้ม) ทั้ง dark และ light theme */
 div[data-baseweb="popover"],
-div[data-baseweb="popover"] * {{
-    background-color: {C['surface']} !important;
-    color: {C['ink']} !important;
-    border-color: {C['border']} !important;
+div[data-baseweb="popover"] *,
+[role="listbox"],
+[role="listbox"] * {{
+    background-color: #FFFFFF !important;
+    color: #1B2A38 !important;
+    border-color: #DFE7EC !important;
 }}
-/* รายการที่ hover หรือถูกเลือกอยู่ ให้เข้มขึ้นเล็กน้อย */
-div[data-baseweb="popover"] li:hover,
-div[data-baseweb="popover"] li:hover *,
-div[data-baseweb="popover"] [role="option"]:hover,
-div[data-baseweb="popover"] [role="option"]:hover *,
-div[data-baseweb="popover"] [aria-selected="true"],
-div[data-baseweb="popover"] [aria-selected="true"] * {{
-    background-color: {C['surface2']} !important;
+/* รายการที่ hover หรือถูกเลือกอยู่ */
+[role="listbox"] li:hover,
+[role="listbox"] li:hover *,
+[role="listbox"] [role="option"]:hover,
+[role="listbox"] [role="option"]:hover *,
+[role="listbox"] [aria-selected="true"],
+[role="listbox"] [aria-selected="true"] * {{
+    background-color: #EEF3F6 !important;
+    color: #1B2A38 !important;
 }}
 
 /* ปุ่มทำนาย */
