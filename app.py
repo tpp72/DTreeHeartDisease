@@ -92,6 +92,15 @@ p, label, span, div {{ color: {C['ink']}; }}
 }}
 [data-testid="stSidebar"] * {{ color: {C['ink']} !important; font-family:'Sarabun',sans-serif; }}
 
+/* คืนฟอนต์ไอคอน Material ให้ปุ่มซ่อน/ขยาย sidebar (ไม่งั้นจะเห็นเป็นข้อความ keyboard_double_arrow...) */
+[data-testid="stIconMaterial"],
+[data-testid="stSidebar"] [data-testid="stIconMaterial"],
+[data-testid="stSidebarCollapseButton"] span,
+[data-testid="stExpandSidebarButton"] span,
+span[class*="material-symbols"] {{
+    font-family: 'Material Symbols Rounded' !important;
+}}
+
 /* ส่วนหัวแบบการ์ด + เส้นชีพจร */
 .hero {{
     background: {C['surface']};
