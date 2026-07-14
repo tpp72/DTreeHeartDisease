@@ -137,7 +137,23 @@ span[class*="material-symbols"] {{
     color: {C['ink']} !important;
     border-color: {C['border']} !important;
 }}
-[data-baseweb="popover"] li {{ background-color:{C['surface']} !important; color:{C['ink']} !important; }}
+/* กล่อง dropdown (popover) ทั้งใบ — ทาสีทั้ง container, ul และ li ไม่งั้น dark theme จะเห็นพื้นขาว */
+[data-baseweb="popover"],
+[data-baseweb="popover"] > div,
+[data-baseweb="popover"] [data-baseweb="menu"],
+[data-baseweb="popover"] ul {{
+    background-color: {C['surface']} !important;
+    border-color: {C['border']} !important;
+}}
+[data-baseweb="popover"] li {{
+    background-color: {C['surface']} !important;
+    color: {C['ink']} !important;
+}}
+[data-baseweb="popover"] li:hover,
+[data-baseweb="popover"] li[aria-selected="true"] {{
+    background-color: {C['surface2']} !important;
+    color: {C['ink']} !important;
+}}
 
 /* ปุ่มทำนาย */
 .stButton > button {{
