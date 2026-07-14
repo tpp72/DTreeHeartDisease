@@ -7,6 +7,7 @@
 # (วางไฟล์ heart_disease_model.pkl ไว้โฟลเดอร์เดียวกับ app.py)
 # ============================================================
 
+import os
 import pickle
 import pandas as pd
 import streamlit as st
@@ -25,7 +26,9 @@ st.set_page_config(
 # ------------------------------------------------------------
 @st.cache_resource
 def load_model():
-    with open("heart_disease_model.pkl", "rb") as f:
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(base_dir, "model_files", "heart_disease_model.pkl")
+    with open(model_path, "rb") as f:
         return pickle.load(f)
 
 try:
@@ -174,7 +177,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 if not model_ok:
-    st.error("ไม่พบไฟล์ **heart_disease_model.pkl** — กรุณาวางไฟล์โมเดลไว้ในโฟลเดอร์เดียวกับ app.py แล้วรีเฟรชหน้า")
+    st.error("ไม่พบไฟล์ **model_files/heart_disease_model.pkl** — กรุณาตรวจสอบว่าอัปโหลดโฟลเดอร์ model_files พร้อมไฟล์โมเดลขึ้น repo แล้ว")
     st.stop()
 
 # ------------------------------------------------------------
