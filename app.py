@@ -132,11 +132,20 @@ span[class*="material-symbols"] {{
 }}
 
 /* ช่องกรอกข้อมูล */
-[data-testid="stNumberInput"] input, [data-baseweb="select"] > div {{
+[data-testid="stNumberInput"] input {{
     background-color: {C['surface']} !important;
     color: {C['ink']} !important;
     border-color: {C['border']} !important;
 }}
+/* ตัวกล่อง selectbox (ตอนหุบ) — เหมาทาสีทุกชั้นข้างใน ให้ตามธีมเสมอ */
+div[data-baseweb="select"],
+div[data-baseweb="select"] div,
+div[data-baseweb="select"] input {{
+    background-color: {C['surface']} !important;
+    color: {C['ink']} !important;
+    border-color: {C['border']} !important;
+}}
+div[data-baseweb="select"] svg {{ fill: {C['ink']} !important; }}
 /* กล่อง dropdown (popover) — ทาสีเหมาทุก element ข้างใน กัน dark theme เห็นพื้นขาว */
 div[data-baseweb="popover"],
 div[data-baseweb="popover"] * {{
